@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\FuncionarioController;
+ 
 
 /*
 |--------------------------------------------------------------------------
@@ -19,23 +22,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 
 
+// Funcionário
+Route::get('/funcionario', [FuncionarioController::class, 'index']);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-\Http\Controllers\HomeController::class, 'index'])->name('home');
