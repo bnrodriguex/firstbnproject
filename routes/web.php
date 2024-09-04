@@ -26,8 +26,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
-
-// Funcionário
+/* Funcionário */
 Route::get('/funcionario', [FuncionarioController::class, 'index']);
 
 
