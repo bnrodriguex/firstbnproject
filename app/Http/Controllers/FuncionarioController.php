@@ -11,7 +11,7 @@ class FuncionarioController extends Controller
      */
     public function index()
     {
-        dd("Entrou no FuncionarioController teu otário - Método index");
+        dd("Entrou no FuncionarioController, congatulations! - Método index");
     }
 
     /**
