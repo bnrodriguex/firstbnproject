@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Funcionario;
 
 class FuncionarioController extends Controller
 {
@@ -11,7 +12,14 @@ class FuncionarioController extends Controller
      */
     public function index()
     {
-        dd("Entrou no FuncionarioController, congatulations! - Método index");
+        //$funcionarios = Funcionario::all();
+        //em minúsculo por ser listagem, o "all" puxa tos os registros do modelo "Funcionario"
+        $funcionarios = Funcionario::where('id', '>=', 2)
+                                    ->where('nome', 'like', '%e%')
+                                    ->orderBy('nome', 'DESC')->get();
+        
+        dd($funcionarios);
+        dd("Correu tudo bem! - Método index");
     }
 
     /**

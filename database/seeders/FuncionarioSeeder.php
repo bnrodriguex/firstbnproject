@@ -14,7 +14,7 @@ class FuncionarioSeeder extends Seeder
     public function run(): void
     {
         DB::table('funcionarios')->insert([
-            'nome' => 'Beene',
+            'nome' => 'Rodrigol',
         ]);
 
         DB::table('funcionarios')->insert([
@@ -22,7 +22,7 @@ class FuncionarioSeeder extends Seeder
         ]);
 
         DB::table('funcionarios')->insert([
-            'nome' => 'Rodrigol',
+            'nome' => 'Beene',
         ]);
 
     }
