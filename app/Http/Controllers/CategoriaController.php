@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
 
@@ -13,9 +12,9 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::orderBy('nome', 'ASC')->get();
-        dd($categorias);
-        dd('Categoria - Index');
+        $categorias = Categoria::orderBy('id', 'ASC')->get();
+
+        return view('categoria.categoria_index', compact('categorias'));
     }
 
     /**
@@ -23,7 +22,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        return view ('categoria.categoria_create');
     }
 
     /**
@@ -31,7 +30,18 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+
+        $validated = $request->validate([
+            'nome' => 'required|min:5',
+
+        ]);
+
+        $categoria = new Categoria();
+        $categoria->nome = $request->nome;
+        $categoria-> save();
+
+        return redirect()->route('categoria.index')->with('mensagem', 'Categoria cadastrada com sucesso!');
     }
 
     /**
@@ -39,7 +49,9 @@ class CategoriaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
+        $categoria = Categoria::find($id);
+        return view('categoria.categoria_show', compact('categoria'));
     }
 
     /**
@@ -47,7 +59,9 @@ class CategoriaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $categoria = Categoria::find($id);
+        return view('categoria.categoria_edit', compact('categoria'));
+
     }
 
     /**
@@ -55,7 +69,19 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
+        
+        
+        $validated = $request->validate([
+            'nome' => 'required|min:5',
+
+        ]);
+
+        $categoria = Categoria::find($id);
+        $categoria->nome =  $request->nome;
+        $categoria->save();
+
+        return redirect()->route('categoria.index')->with('mensagem', 'Categoria alterada com sucesso!');
     }
 
     /**
@@ -63,6 +89,9 @@ class CategoriaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $categoria = Categoria::find($id);
+        $categoria->delete();
+
+        return redirect()->route('categoria.index')->with('mensagem', 'Categoria excluida com sucesso!');
     }
 }
