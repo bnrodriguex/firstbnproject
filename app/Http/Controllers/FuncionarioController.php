@@ -18,7 +18,7 @@ class FuncionarioController extends Controller
                                     ->where('nome', 'like', '%e%')
                                     ->orderBy('nome', 'DESC')->get();
         
-        dd($funcionarios);
+        dd($funcionarios);        
         dd("Correu tudo bem! - Método index");
     }
 
