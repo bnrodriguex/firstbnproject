@@ -1,17 +1,9 @@
-<<<<<<< Updated upstream
-=======
-
-
->>>>>>> Stashed changes
 @extends('adminlte::page')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-<<<<<<< Updated upstream
-    
-
                 <a  href="{{ url('/categoria/create  ') }}" class=" align-text-right my-3 btn btn-success btn-md active" role="button" aria-pressed="true">CRIAR</a>
 
                 @if (session( 'mensagem' ))
@@ -59,32 +51,4 @@
     </div>
 </div>  
 @endsection
-=======
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <table>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nome</th>
-                            <th>Ações</th>
-                        </tr>
-
-                    @foreach ($categorias as $value)
-                        <tr>
-                            <td>{{ $value->id }}</td>
-                            <td>{{ $value->nome }}</td>
-                            <td></td>
-                        </tr>
-                    @endforeach
-                </table
-        
-                
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
-
-
->>>>>>> Stashed changes

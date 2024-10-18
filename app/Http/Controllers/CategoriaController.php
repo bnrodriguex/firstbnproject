@@ -12,17 +12,11 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-<<<<<<< Updated upstream
-        $categorias = Categoria::orderBy('id', 'ASC')->get();
-
-        return view('categoria.categoria_index', compact('categorias'));
-=======
         $categorias = Categoria::orderBy('nome', 'ASC')->get();
         return view('categoria.categoria_index', compact('categorias'));
 
         //dd('Categoria - Index');
->>>>>>> Stashed changes
-    }
+}
 
     /**
      * Show the form for creating a new resource.
@@ -56,7 +50,7 @@ class CategoriaController extends Controller
      */
     public function show(string $id)
     {
-        
+        dd('show: ' . $id); 
         $categoria = Categoria::find($id);
         return view('categoria.categoria_show', compact('categoria'));
     }
