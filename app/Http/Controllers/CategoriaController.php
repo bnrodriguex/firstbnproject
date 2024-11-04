@@ -54,7 +54,7 @@ class CategoriaController extends Controller
         $categoria = Categoria::find($id);
         return view('categoria.categoria_show', compact('categoria'));
     }
-
+  
     /**
      * Show the form for editing the specified resource.
      */
