@@ -50,8 +50,9 @@ class CategoriaController extends Controller
      */
     public function show(string $id)
     {
-        dd('show: ' . $id); 
+        //dd('show: ' . $id);     
         $categoria = Categoria::find($id);
+                                //Facilitador
         return view('categoria.categoria_show', compact('categoria'));
     }
   
